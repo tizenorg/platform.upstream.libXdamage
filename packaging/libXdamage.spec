@@ -20,7 +20,6 @@ X.Org X11 libXdamage runtime library.
 Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name} = %{version}
-Provides:       libxdamage-devel
 
 %description devel
 X.Org X11 libXdamage development package.
@@ -29,17 +28,12 @@ X.Org X11 libXdamage development package.
 %setup -q
 
 %build
-%reconfigure --disable-static \
+%configure --disable-static \
            LDFLAGS="${LDFLAGS} -Wl,--hash-style=both -Wl,--as-needed"
 make %{?_smp_mflags}
 
 %install
-
-make install DESTDIR=%{buildroot} INSTALL="install -p"
-
-# We intentionally don't ship *.la files
-rm -f %{buildroot}%{_libdir}/*.la
-
+%make_install
 %remove_docs
 
 %post -p /sbin/ldconfig
@@ -47,7 +41,7 @@ rm -f %{buildroot}%{_libdir}/*.la
 
 %files
 %defattr(-,root,root,-)
-%doc AUTHORS COPYING README ChangeLog
+%doc COPYING
 %{_libdir}/libXdamage.so.1
 %{_libdir}/libXdamage.so.1.1.0
 
