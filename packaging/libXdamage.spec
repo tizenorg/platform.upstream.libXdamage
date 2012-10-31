@@ -49,4 +49,4 @@ make %{?_smp_mflags}
 %defattr(-,root,root,-)
 %{_includedir}/X11/extensions/Xdamage.h
 %{_libdir}/libXdamage.so
-%{_libdir}/pkgconfig/xdamage.p
+%{_libdir}/pkgconfig/xdamage.pc
