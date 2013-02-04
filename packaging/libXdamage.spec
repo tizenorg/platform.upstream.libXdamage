@@ -5,7 +5,6 @@ License:        MIT
 Summary:        X Damage extension library
 Url:            http://www.x.org
 Group:          System Environment/Libraries
-
 Source:         %{name}-%{version}.tar.bz2
 
 BuildRequires:  pkgconfig(damageproto) >= 1.1.0
@@ -28,8 +27,7 @@ X.Org X11 libXdamage development package.
 %setup -q
 
 %build
-%configure --disable-static \
-           LDFLAGS="${LDFLAGS} -Wl,--hash-style=both -Wl,--as-needed"
+%configure --disable-static 
 make %{?_smp_mflags}
 
 %install
@@ -37,11 +35,12 @@ make %{?_smp_mflags}
 %remove_docs
 
 %post -p /sbin/ldconfig
+
 %postun -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
-%doc COPYING
+%license COPYING
 %{_libdir}/libXdamage.so.1
 %{_libdir}/libXdamage.so.1.1.0
 
