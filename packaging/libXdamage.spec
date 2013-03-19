@@ -4,7 +4,7 @@ Release:        3
 License:        MIT
 Summary:        X Damage extension library
 Url:            http://www.x.org
-Group:          System Environment/Libraries
+Group:          Graphics/X Window System
 Source:         %{name}-%{version}.tar.bz2
 
 BuildRequires:  pkgconfig(damageproto) >= 1.1.0
