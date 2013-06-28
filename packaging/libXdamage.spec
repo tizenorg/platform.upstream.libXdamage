@@ -6,6 +6,7 @@ Summary:        X Damage extension library
 Url:            http://www.x.org
 Group:          Graphics/X Window System
 Source:         %{name}-%{version}.tar.bz2
+Source1001: 	libXdamage.manifest
 
 BuildRequires:  pkgconfig(damageproto) >= 1.1.0
 BuildRequires:  pkgconfig(xextproto)
@@ -25,6 +26,7 @@ X.Org X11 libXdamage development package.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure --disable-static 
@@ -39,12 +41,14 @@ make %{?_smp_mflags}
 %postun -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %license COPYING
 %{_libdir}/libXdamage.so.1
 %{_libdir}/libXdamage.so.1.1.0
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %{_includedir}/X11/extensions/Xdamage.h
 %{_libdir}/libXdamage.so
