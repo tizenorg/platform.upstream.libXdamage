@@ -1,0 +1,8 @@
+Change-Id: Ib1d88974d9593707469759bcdedb5f0802a1db75
+Code-Review+2: Ryan Ware <ware@linux.intel.com>
+Verified+1: Ryan Ware <ware@linux.intel.com>
+Submitted-by: Ryan Ware <ware@linux.intel.com>
+Submitted-at: Mon, 08 Jul 2013 09:39:46 -0700
+Reviewed-on: https://review.tizen.org/gerrit/4861
+Project: platform/upstream/libXdamage
+Branch: refs/heads/tizen
