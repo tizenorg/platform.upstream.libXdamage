@@ -1,3 +1,5 @@
+%bcond_with x
+
 Name:           libXdamage
 Version:        1.1.3
 Release:        3
@@ -12,6 +14,10 @@ BuildRequires:  pkgconfig(damageproto) >= 1.1.0
 BuildRequires:  pkgconfig(xextproto)
 BuildRequires:  pkgconfig(xfixes)
 BuildRequires:  pkgconfig(xorg-macros)
+
+%if !%{with x}
+ExclusiveArch:
+%endif
 
 %description
 X.Org X11 libXdamage runtime library.
@@ -29,7 +35,7 @@ X.Org X11 libXdamage development package.
 cp %{SOURCE1001} .
 
 %build
-%configure --disable-static 
+%configure --disable-static
 make %{?_smp_mflags}
 
 %install
