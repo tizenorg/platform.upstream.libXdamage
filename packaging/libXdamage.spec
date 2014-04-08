@@ -1,7 +1,7 @@
 %bcond_with x
 
 Name:           libXdamage
-Version:        1.1.3
+Version:        1.1.4
 Release:        3
 License:        MIT
 Summary:        X Damage extension library
@@ -35,7 +35,7 @@ X.Org X11 libXdamage development package.
 cp %{SOURCE1001} .
 
 %build
-%configure --disable-static
+%autogen --disable-static
 make %{?_smp_mflags}
 
 %install
